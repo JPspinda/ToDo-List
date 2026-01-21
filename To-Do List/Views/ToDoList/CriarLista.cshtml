@@ -1,0 +1,14 @@
+﻿@model Lista
+@{
+}
+
+<form asp-action="CriarLista" method="post">
+    <div class="form-group">
+        <label asp-for="Titulo" class="control-label"></label>
+        <input asp-for="Titulo" class="form-control" />
+        <span asp-validation-for="Titulo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Criar Lista" class="btn btn-primary" />
+    </div>
+</form>

@@ -1,0 +1,15 @@
+﻿@model ElementoLista
+@{
+}
+
+<form asp-action="AddElementoLista" method="post">
+    <div class="form-group">
+        <input type="hidden" name="listaId" value="@ViewBag.ListaId" />
+        <label asp-for="Descricao" class="control-label"></label>
+        <input asp-for="Descricao" class="form-control" />
+        <span asp-validation-for="Descricao" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Adicionar" class="btn btn-primary" />
+    </div>
+</form>

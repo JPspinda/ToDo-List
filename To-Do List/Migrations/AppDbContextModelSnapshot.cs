@@ -43,7 +43,7 @@ namespace To_Do_List.Migrations
 
                     b.HasIndex("ListaId");
 
-                    b.ToTable("ElementoLista");
+                    b.ToTable("ElementoLista", (string)null);
                 });
 
             modelBuilder.Entity("To_Do_List.Models.Lista", b =>
@@ -60,7 +60,7 @@ namespace To_Do_List.Migrations
 
                     b.HasKey("ListaId");
 
-                    b.ToTable("Lista");
+                    b.ToTable("Lista", (string)null);
                 });
 
             modelBuilder.Entity("To_Do_List.Models.ElementoLista", b =>

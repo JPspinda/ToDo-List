@@ -4,6 +4,6 @@
     {
         public int ListaId { get; set; }
         public string Titulo { get; set; }
-        public List<ElementoLista> ElementosLista { get; set; }
+        public List<ElementoLista> ElementosLista { get; set; } = new List<ElementoLista>();
     }
 }

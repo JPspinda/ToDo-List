@@ -1,5 +1,51 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Lista
+
+<div class="container mt-4">
+
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">@Model.Titulo</h2>
+
+        <a asp-controller="ToDoList"
+           asp-action="CriarLista"
+           class="btn btn-outline-primary">
+            <i class="bi bi-plus-circle"></i> Criar Lista
+        </a>
+    </div>
+
+    <!-- Tasks -->
+    @if (Model.ElementosLista != null && Model.ElementosLista.Any())
+    {
+        <ul class="list-group mb-4">
+            @foreach (var item in Model.ElementosLista)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>
+                        @item.Descricao
+                    </span>
+
+                    <span class="badge rounded-pill @(item.Concluido ? "bg-success" : "bg-warning text-dark")">
+                        @(item.Concluido ? "Concluído" : "Em aberto")
+                    </span>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <div class="alert alert-secondary text-center">
+            Nenhuma tarefa adicionada ainda.
+        </div>
+    }
+
+    <!-- Add Task Button -->
+    <div class="text-end">
+        <a asp-controller="ToDoList"
+           asp-action="AddElementoLista"
+           asp-route-listaId="@Model.ListaId"
+           class="btn btn-info">
+            <i class="bi bi-plus-lg"></i> Adicionar tarefa
+        </a>
+    </div>
+
+</div>
